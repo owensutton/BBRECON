@@ -1,17 +1,12 @@
-#
-#   Name: BBRECON
-#   Created By: Owen Sutton
-#   Description: Bug Bounty Recon tool. 
-#
-#   Version 1.01
-#   Latest Issue: Owen-resolve-dns-to-ip-address
-#
 
 from Resolve_DNS import *
+from Find_IP_location import *
 
 def main():
     print("Start of BBRECON....\n")
-    Resolve_DNS()
+    IP = Resolve_DNS()
+    formatted_IP = IP.translate({ord("'"): None})
+    IP_Location = Get_Location(formatted_IP)
 
 if __name__ == "__main__":
     main()
